@@ -14,3 +14,8 @@ position = Vector2( 0, 590 )
 
 [node name="Wave" parent="." instance=ExtResource( 3 )]
 position = Vector2( 250.724, 17.6389 )
+
+[node name="LevelBounds" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LevelBounds"]
+polygon = PoolVector2Array( 0, 560, 0, 640, 480, 640, 480, 560, 488, 560, 488, 648, -8, 648, -8, 560 )
