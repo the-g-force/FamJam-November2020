@@ -33,4 +33,4 @@ func _on_Timer_timeout():
 
 
 func _start_shoot_timer():
-	$Timer.start(base_shoot_speed+randf()*-1.0 if randi()%2 == 0 else 1.0)
+	$Timer.start(((base_shoot_speed-Gamestats.time) if (base_shoot_speed-Gamestats.time) > 0.5 else 0.5) +randf()*-1.0 if randi()%2 == 0 else 1.0)
