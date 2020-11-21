@@ -1,11 +1,12 @@
 class_name Enemy extends Area2D
 
 signal destroyed
+
 export var base_shoot_speed := 3.0
 
 func _ready():
-# warning-ignore:incompatible_ternary
 	_start_shoot_timer()
+
 
 func _draw():
 	draw_circle(Vector2.ZERO, $CollisionShape2D.shape.radius, Color.lightblue)

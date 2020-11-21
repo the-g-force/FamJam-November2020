@@ -6,6 +6,16 @@ export var SPEED := 100
 
 export var Enemy : PackedScene = preload("res://src/Enemy.tscn")
 
+
+var _path_list : Array = [
+	load("res://src/Paths/RightToEdge.gd"),
+	load("res://src/Paths/Down.gd"),
+	load("res://src/Paths/LeftToEdge.gd"),
+	load("res://src/Paths/Down.gd")
+]
+var _path : PathElement
+var _path_index := 0
+
 onready var _spawn_points := $SpawnPoints
 onready var _enemies := $Enemies
 var _enemies_left := 0
@@ -26,10 +36,10 @@ func _on_Enemy_destroyed():
 		emit_signal("completed")
 
 
-# Move all the things downward.
-#
-# This could later be extracted to a separate script so that 
-# waves could be random in shape and behavior.
 func _physics_process(delta):
-	for enemy in _enemies.get_children():
-		enemy.position.y += SPEED * delta
+	if _path==null:
+		_path = _path_list[_path_index].new()
+	var done := _path.execute(_enemies.get_children(), delta)
+	if done:
+		_path_index = (_path_index + 1) % _path_list.size()
+		_path = _path_list[_path_index].new()
