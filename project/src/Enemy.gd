@@ -2,7 +2,7 @@ class_name Enemy extends KinematicBody2D
 
 const MIN_SHOOT_RATE := 0.2
 const MAX_SHOOT_RATE := 1.0
-const SECONDS_TO_MAX_RATE := 30.0
+const SECONDS_TO_MAX_RATE := 60.0
 
 onready var _sprite := $Sprite
 onready var _shoot_sound := $ShootSound
