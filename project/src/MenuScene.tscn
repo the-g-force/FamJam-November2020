@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/MenuScene.gd" type="Script" id=1]
-[ext_resource path="res://src/fonts/Audiowide/Audiowide-Regular.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://src/fonts/Roboto_Condensed/RobotoCondensed-Bold.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/fonts/Audiowide/Audiowide-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/fonts/Roboto_Condensed/RobotoCondensed-Bold.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 31
