@@ -45,7 +45,3 @@ margin_left = 134.35
 margin_top = 248.902
 margin_right = 353.35
 margin_bottom = 348.902
-
-[node name="GameTimer" type="Timer" parent="."]
-autostart = true
-[connection signal="timeout" from="GameTimer" to="." method="_on_GameTimer_timeout"]

@@ -2,17 +2,22 @@ extends Node2D
 
 signal completed
 
-export var SPEED := 100
 
+const DOWN := preload("res://src/Paths/Down.gd")
+const LEFT_TO_EDGE := preload("res://src/Paths/LeftToEdge.gd")
+const RIGHT_TO_EDGE := preload("res://src/Paths/RightToEdge.gd")
+const PATH_OPTIONS = [
+	[DOWN, LEFT_TO_EDGE, DOWN, RIGHT_TO_EDGE],
+	[DOWN, RIGHT_TO_EDGE, DOWN, LEFT_TO_EDGE]
+]
+
+
+export var SPEED := 100
 export var Enemy : PackedScene = preload("res://src/Enemy.tscn")
 
 
-var _path_list : Array = [
-	load("res://src/Paths/Down.gd"),
-	load("res://src/Paths/LeftToEdge.gd"),
-	load("res://src/Paths/Down.gd"),
-	load("res://src/Paths/RightToEdge.gd"),	
-]
+
+var _path_list : Array = PATH_OPTIONS[randi() % PATH_OPTIONS.size()]
 var _path : PathElement
 var _path_index := 0
 
