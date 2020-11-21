@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://src/UI/MenuScene.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/Audiowide/Audiowide-Regular.ttf" type="DynamicFontData" id=2]
@@ -6,6 +6,14 @@
 [ext_resource path="res://src/UI/ShipButton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/images/hero-ships/011.png" type="Texture" id=5]
 [ext_resource path="res://assets/fonts/Roboto_Condensed/RobotoCondensed-Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://assets/images/hero-ships/008.png" type="Texture" id=7]
+[ext_resource path="res://assets/images/hero-ships/002.png" type="Texture" id=8]
+[ext_resource path="res://assets/images/hero-ships/004.png" type="Texture" id=9]
+[ext_resource path="res://assets/images/hero-ships/003.png" type="Texture" id=10]
+[ext_resource path="res://assets/images/hero-ships/012.png" type="Texture" id=11]
+[ext_resource path="res://assets/images/hero-ships/015.png" type="Texture" id=12]
+[ext_resource path="res://assets/images/hero-ships/010.png" type="Texture" id=13]
+[ext_resource path="res://src/Starfield.tscn" type="PackedScene" id=14]
 
 [sub_resource type="DynamicFont" id=1]
 size = 72
@@ -26,6 +34,17 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Background" type="ColorRect" parent="."]
+margin_right = 477.0
+margin_bottom = 637.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Starfield" parent="." instance=ExtResource( 14 )]
+position = Vector2( 241.83, 0 )
 
 [node name="Title" type="Label" parent="."]
 anchor_left = 0.5
@@ -59,29 +78,80 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ShipContainer" type="HBoxContainer" parent="."]
+[node name="ShipContainer" type="GridContainer" parent="."]
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -194.435
-margin_bottom = -94.4353
+margin_left = 44.0
+margin_top = -204.0
+margin_right = -34.0
 grow_horizontal = 2
 grow_vertical = 0
-size_flags_horizontal = 3
-custom_constants/separation = 20
-alignment = 1
+custom_constants/hseparation = 20
+columns = 5
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="ShipButton" parent="ShipContainer" instance=ExtResource( 4 )]
-margin_left = 180.0
-margin_right = 230.0
+margin_right = 64.0
+size_flags_horizontal = 3
 
 [node name="ShipButton2" parent="ShipContainer" instance=ExtResource( 4 )]
-margin_left = 250.0
-margin_right = 300.0
+margin_left = 84.0
+margin_right = 148.0
+size_flags_horizontal = 3
 texture_normal = ExtResource( 5 )
+
+[node name="ShipButton3" parent="ShipContainer" instance=ExtResource( 4 )]
+margin_left = 168.0
+margin_right = 232.0
+size_flags_horizontal = 3
+texture_normal = ExtResource( 8 )
+
+[node name="ShipButton4" parent="ShipContainer" instance=ExtResource( 4 )]
+margin_left = 252.0
+margin_right = 316.0
+size_flags_horizontal = 3
+texture_normal = ExtResource( 10 )
+
+[node name="ShipButton5" parent="ShipContainer" instance=ExtResource( 4 )]
+margin_left = 336.0
+margin_right = 400.0
+size_flags_horizontal = 3
+texture_normal = ExtResource( 9 )
+
+[node name="ShipButton6" parent="ShipContainer" instance=ExtResource( 4 )]
+margin_top = 104.0
+margin_right = 64.0
+margin_bottom = 204.0
+size_flags_horizontal = 3
+texture_normal = ExtResource( 7 )
+
+[node name="ShipButton7" parent="ShipContainer" instance=ExtResource( 4 )]
+margin_left = 84.0
+margin_top = 104.0
+margin_right = 148.0
+margin_bottom = 204.0
+size_flags_horizontal = 3
+texture_normal = ExtResource( 13 )
+
+[node name="ShipButton8" parent="ShipContainer" instance=ExtResource( 4 )]
+margin_left = 168.0
+margin_top = 104.0
+margin_right = 232.0
+margin_bottom = 204.0
+size_flags_horizontal = 3
+texture_normal = ExtResource( 12 )
+
+[node name="ShipButton9" parent="ShipContainer" instance=ExtResource( 4 )]
+margin_left = 252.0
+margin_top = 104.0
+margin_right = 316.0
+margin_bottom = 204.0
+size_flags_horizontal = 3
+texture_normal = ExtResource( 11 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchor_left = 0.5
