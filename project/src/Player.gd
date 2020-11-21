@@ -7,6 +7,7 @@ export var speed := 200
 export var ship_variant := 0 setget _set_ship_variant
 
 onready var _sprite := $Sprite
+onready var _shoot_sound := $ShootSound
 
 func _ready():
 	_sprite.texture = Gamestats.ship_texture
@@ -19,6 +20,7 @@ func _physics_process(delta):
 	if Input.is_action_pressed("Right"):
 		velocity += 1
 	if Input.is_action_just_pressed("Shoot"):
+		_shoot_sound.play()
 		var Laser:Area2D = load("res://src/Laser.tscn").instance()
 		Laser.good = true
 		Laser.global_position = $Muzzle.get_global_transform().origin
