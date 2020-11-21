@@ -4,7 +4,7 @@ extends Node2D
 func _process(_delta):
 	if Gamestats.health < 5:
 		$Health.get_node("Sprite"+str(Gamestats.health+1)).hide()
-	$Score.text == str(Gamestats.score)
+	$Score.text = str(Gamestats.score)
 
 
 func _on_Shoot_pressed():
