@@ -46,6 +46,7 @@ func hit():
 		emit_signal("destroyed")
 		var explosion:Node2D = load("res://src/ExplosionParticles.tscn").instance()
 		explosion.position = self.get_global_transform().origin
+		Gamestats.player = null
 		get_tree().current_scene.add_child(explosion)
 		queue_free()
 	else:

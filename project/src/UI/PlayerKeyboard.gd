@@ -10,7 +10,8 @@ func _process(_delta):
 		for heart in $Health.get_children():
 			heart.show()
 	$Score.text = str(Gamestats.score)
-	_shoot_button.disabled = not Gamestats.player.can_shoot()
+	if Gamestats.player != null:
+		_shoot_button.disabled = not Gamestats.player.can_shoot()
 
 
 func _on_Shoot_pressed():
