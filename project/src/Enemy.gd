@@ -1,11 +1,15 @@
 class_name Enemy extends Area2D
 
+const MIN_SHOOT_RATE := 0.2
+const MAX_SHOOT_RATE := 1.0
+const SECONDS_TO_MAX_RATE := 30.0
+
 onready var _sprite := $Sprite
 onready var _shoot_sound := $ShootSound
 
 signal destroyed
 
-export var base_shoot_speed := 3.0
+export var base_shoot_speed := 5.0
 
 var type := -1
 
@@ -16,7 +20,7 @@ func _ready():
 
 func hit():
 	emit_signal("destroyed")
-	Gamestats.score += 1
+	Gamestats.score += 100
 	var explosion:Node2D = load("res://src/ExplosionParticles.tscn").instance()
 	explosion.position = self.get_global_transform().origin
 	get_tree().current_scene.add_child(explosion)
@@ -33,4 +37,7 @@ func _on_Timer_timeout():
 
 
 func _start_shoot_timer():
-	$Timer.start(((base_shoot_speed-Gamestats.time) if (base_shoot_speed-Gamestats.time) > 0.5 else 0.5) +randf()*-1.0 if randi()%2 == 0 else 1.0)
+	var rate := range_lerp(Gamestats.seconds_elapsed, 0, SECONDS_TO_MAX_RATE, MIN_SHOOT_RATE, MAX_SHOOT_RATE)
+	var delay := 1/rate
+	var randomness := randf()*-1.0 if randi()%2 == 0 else 1.0
+	$Timer.start(delay-randomness)

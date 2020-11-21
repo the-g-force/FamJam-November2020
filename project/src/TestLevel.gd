@@ -13,7 +13,7 @@ onready var _game_over_dialog := $GameOverDialog
 
 func _ready():
 	_spawn_wave()
-	Gamestats.time = 0
+	Gamestats.seconds_elapsed = 0
 	var _error = _player.connect("destroyed", self, "_on_Player_destroyed", [], CONNECT_ONESHOT)
 
 
@@ -24,13 +24,13 @@ func _spawn_wave():
 	$Waves.add_child(Wave)
 
 
+func _process(delta):
+	Gamestats.seconds_elapsed += delta
+
+
 func _wave_over():
 	_spawn_wave()
 
 
 func _on_Player_destroyed():
 	_game_over_dialog.visible = true
-
-
-func _on_GameTimer_timeout():
-	Gamestats.time += 0.1

@@ -2,7 +2,7 @@ extends Node
 
 var health := 5
 var score := 0
-var time := 0.0
+var seconds_elapsed := 0.0
 
 var player : Player 
 
