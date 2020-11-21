@@ -40,6 +40,7 @@ margin_right = 477.0
 margin_bottom = 637.0
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -48,17 +49,20 @@ position = Vector2( 241.83, 0 )
 
 [node name="Title" type="Label" parent="."]
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-margin_left = -157.5
-margin_top = 57.0
-margin_right = 157.5
-margin_bottom = 246.0
+anchor_bottom = 0.5
+margin_left = -203.5
+margin_top = -245.821
+margin_right = 203.5
+margin_bottom = -56.8208
 custom_fonts/font = SubResource( 1 )
-text = "Vertical
-Man"
+text = "Earth
+Protector"
 align = 1
 valign = 1
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -75,6 +79,7 @@ custom_fonts/font = SubResource( 2 )
 text = "Select a Ship to Begin!"
 align = 1
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -163,6 +168,7 @@ margin_top = -20.0
 margin_right = 97.0
 margin_bottom = 20.0
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
