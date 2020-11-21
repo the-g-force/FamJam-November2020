@@ -13,7 +13,7 @@ func _ready():
 	_start_shoot_timer()
 
 
-func _on_Enemy_area_entered(_area):
+func hit():
 	emit_signal("destroyed")
 	Gamestats.score += 1
 	var explosion:Node2D = load("res://src/ExplosionParticles.tscn").instance()

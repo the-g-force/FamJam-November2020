@@ -21,14 +21,14 @@ animations = [ {
 "name": "2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "1",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "0",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "1",
 "speed": 5.0
 } ]
 
@@ -53,5 +53,4 @@ position = Vector2( 0, 25.568 )
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "3"
-[connection signal="area_entered" from="." to="." method="_on_Enemy_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

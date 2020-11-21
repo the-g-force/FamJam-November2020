@@ -21,5 +21,7 @@ func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
 
 
-func _on_Laser_area_entered(_area):
+func _on_Laser_area_entered(area):
+	if area is Enemy:
+		area.hit()
 	queue_free()
