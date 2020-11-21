@@ -1,9 +1,9 @@
 extends Node2D
 
 
-var wave_list := [
-	load("res://src/Waves/Wave.tscn"),
-	load("res://src/Waves/Wave2.tscn")
+const WAVE_LIST := [
+	preload("res://src/Waves/Wave_3_Enemies.tscn"),
+	preload("res://src/Waves/Wave_4_Enemies.tscn")
 ]
 
 onready var _wave_spawn_point := $WaveSpawnPoint
@@ -18,7 +18,8 @@ func _ready():
 
 
 func _spawn_wave():
-	var Wave:Node2D = wave_list[randi()%wave_list.size()].instance()
+	var index := randi()%WAVE_LIST.size()
+	var Wave:Node2D = WAVE_LIST[index].instance()
 	Wave.position = _wave_spawn_point.get_global_transform().origin
 	var _error = Wave.connect("completed", self, "_wave_over")
 	$Waves.add_child(Wave)
