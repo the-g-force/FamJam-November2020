@@ -1,6 +1,8 @@
 class_name Player
 extends KinematicBody2D
 
+signal destroyed
+
 export var speed := 200
 export var ship_variant := 0 setget _set_ship_variant
 
@@ -27,6 +29,7 @@ func _physics_process(delta):
 func hit():
 	Gamestats.health -= 1
 	if Gamestats.health <= 0:
+		emit_signal("destroyed")
 		queue_free()
 
 
