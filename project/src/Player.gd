@@ -2,6 +2,7 @@ class_name Player
 extends KinematicBody2D
 
 export var speed := 200
+export var health := 3
 
 func _physics_process(delta):
 	var velocity := 0
@@ -15,6 +16,12 @@ func _physics_process(delta):
 		Laser.global_position = $Muzzle.get_global_transform().origin
 		get_parent().add_child(Laser)
 	var _error = move_and_collide(Vector2(velocity, 0)*delta*speed)
+
+
+func hit():
+	health -= 1
+	if health <= 0:
+		queue_free()
 
 
 func _draw():

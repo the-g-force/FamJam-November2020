@@ -9,9 +9,7 @@ func _process(delta):
 
 func _on_Laser_body_entered(body):
 	if body is Player and not good:
-		print("Hit player")
-#	elif body is Enemy and good:
-#		print("Hit enemy")
+		body.hit()
 
 
 func _draw():

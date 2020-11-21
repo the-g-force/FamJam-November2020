@@ -16,4 +16,11 @@ shape = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Muzzle" type="Position2D" parent="."]
+position = Vector2( 0, 25.568 )
 [connection signal="area_entered" from="." to="." method="_on_Enemy_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
