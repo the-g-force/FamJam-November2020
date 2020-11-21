@@ -33,7 +33,10 @@ func _physics_process(delta):
 		Laser.good = true
 		Laser.global_position = $Muzzle.get_global_transform().origin
 		get_parent().add_child(Laser)
-	var _error = move_and_collide(Vector2(velocity, 0)*delta*speed)
+	var collision = move_and_collide(Vector2(velocity, 0)*delta*speed)
+	if collision!=null and collision.collider is Enemy:
+		_die()
+		
 
 
 func can_shoot()->bool:
@@ -43,18 +46,22 @@ func can_shoot()->bool:
 func hit():
 	Gamestats.health -= 1
 	if Gamestats.health <= 0:
-		emit_signal("destroyed")
-		var explosion:Node2D = load("res://src/ExplosionParticles.tscn").instance()
-		explosion.position = self.get_global_transform().origin
-		Gamestats.player = null
-		get_tree().current_scene.add_child(explosion)
-		queue_free()
+		_die()
 	else:
 		_hit_sound.play()
 		var explosion:Node2D = load("res://src/DamageExplosion.tscn").instance()
 		explosion.position = self.get_global_transform().origin
 		get_tree().current_scene.add_child(explosion)
 		
+		
+func _die():
+	Gamestats.health = 0	
+	emit_signal("destroyed")
+	var explosion:Node2D = load("res://src/ExplosionParticles.tscn").instance()
+	explosion.position = self.get_global_transform().origin
+	Gamestats.player = null
+	get_tree().current_scene.add_child(explosion)
+	queue_free()
 
 
 func _set_ship_variant(value:int)->void:

@@ -1,4 +1,4 @@
-class_name Enemy extends Area2D
+class_name Enemy extends KinematicBody2D
 
 const MIN_SHOOT_RATE := 0.2
 const MAX_SHOOT_RATE := 1.0

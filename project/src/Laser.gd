@@ -11,6 +11,9 @@ func _on_Laser_body_entered(body):
 	if body is Player and not good:
 		body.hit()
 		queue_free()
+	if body is Enemy and good:
+		body.hit()
+		queue_free()
 
 
 func _draw():
@@ -20,8 +23,3 @@ func _draw():
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
 
-
-func _on_Laser_area_entered(area):
-	if area is Enemy and good:
-		area.hit()
-		queue_free()
