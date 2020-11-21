@@ -1,6 +1,7 @@
 class_name Enemy extends Area2D
 
-onready var sprite := $Sprite
+onready var _sprite := $Sprite
+onready var _shoot_sound := $ShootSound
 
 signal destroyed
 
@@ -9,7 +10,7 @@ export var base_shoot_speed := 3.0
 var type := -1
 
 func _ready():
-	sprite.play(str(type))
+	_sprite.play(str(type))
 	_start_shoot_timer()
 
 
@@ -23,6 +24,7 @@ func hit():
 
 
 func _on_Timer_timeout():
+	_shoot_sound.play()
 	var Laser:Area2D = load("res://src/Laser.tscn").instance()
 	Laser.position = $Muzzle.get_global_transform().origin
 	Laser.good = false

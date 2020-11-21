@@ -8,6 +8,7 @@ export var ship_variant := 0 setget _set_ship_variant
 
 onready var _sprite := $Sprite
 onready var _shoot_sound := $ShootSound
+onready var _hit_sound := $HitSound
 
 func _ready():
 	_sprite.texture = Gamestats.ship_texture
@@ -37,9 +38,11 @@ func hit():
 		get_tree().current_scene.add_child(explosion)
 		queue_free()
 	else:
+		_hit_sound.play()
 		var explosion:Node2D = load("res://src/DamageExplosion.tscn").instance()
 		explosion.position = self.get_global_transform().origin
 		get_tree().current_scene.add_child(explosion)
+		
 
 
 func _set_ship_variant(value:int)->void:
