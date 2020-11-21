@@ -14,6 +14,7 @@ func _draw():
 
 func _on_Enemy_area_entered(_area):
 	emit_signal("destroyed")
+	Gamestats.score += 1
 	queue_free()
 
 
