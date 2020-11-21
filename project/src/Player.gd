@@ -4,7 +4,6 @@ extends KinematicBody2D
 signal destroyed
 
 export var speed := 200
-export var ship_variant := 0 setget _set_ship_variant
 
 onready var _sprite := $Sprite
 onready var _shoot_sound := $ShootSound
