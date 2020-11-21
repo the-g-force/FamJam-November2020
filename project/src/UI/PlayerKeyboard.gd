@@ -5,7 +5,8 @@ onready var _shoot_button : Button = $Shoot
 
 func _process(_delta):
 	if Gamestats.health < 5:
-		$Health.get_node("Sprite"+str(Gamestats.health+1)).hide()
+		for x in 5-Gamestats.health:
+			$Health.get_node("Sprite"+str(Gamestats.health + 1)).hide()
 	elif Gamestats.health == 5:
 		for heart in $Health.get_children():
 			heart.show()
