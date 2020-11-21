@@ -29,6 +29,10 @@ _global_script_class_icons={
 run/main_scene="res://src/TestLevel.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Gamestats="*res://src/Gamestats.gd"
+
 [display]
 
 window/size/width=480

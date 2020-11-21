@@ -2,7 +2,6 @@ class_name Player
 extends KinematicBody2D
 
 export var speed := 200
-export var health := 3
 
 func _physics_process(delta):
 	var velocity := 0
@@ -19,8 +18,8 @@ func _physics_process(delta):
 
 
 func hit():
-	health -= 1
-	if health <= 0:
+	Gamestats.health -= 1
+	if Gamestats.health <= 0:
 		queue_free()
 
 

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/PlayerKeyboard.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
 
 [node name="Keyboard" type="Node2D"]
 script = ExtResource( 1 )
@@ -32,15 +33,39 @@ margin_right = 84.0
 margin_bottom = 50.0
 text = "Right"
 
-[node name="Label" type="Label" parent="."]
-margin_left = 216.505
-margin_top = 20.2271
-margin_right = 257.505
-margin_bottom = 34.2271
+[node name="Score" type="Label" parent="."]
+margin_left = 312.236
+margin_top = 17.8487
+margin_right = 353.236
+margin_bottom = 31.8487
 text = "SCORE"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Health" type="Node2D" parent="."]
+position = Vector2( 111.191, 24.3787 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Sprite1" type="Sprite" parent="Health"]
+position = Vector2( 0, 5 )
+texture = ExtResource( 2 )
+
+[node name="Sprite2" type="Sprite" parent="Health"]
+position = Vector2( 65, 5 )
+texture = ExtResource( 2 )
+
+[node name="Sprite3" type="Sprite" parent="Health"]
+position = Vector2( 130, 5 )
+texture = ExtResource( 2 )
+
+[node name="Sprite4" type="Sprite" parent="Health"]
+position = Vector2( 195, 5 )
+texture = ExtResource( 2 )
+
+[node name="Sprite5" type="Sprite" parent="Health"]
+position = Vector2( 260, 5 )
+texture = ExtResource( 2 )
 [connection signal="pressed" from="Shoot" to="." method="_on_Shoot_pressed"]
 [connection signal="button_down" from="Buttons/Left" to="." method="_on_Left_button_down"]
 [connection signal="button_up" from="Buttons/Left" to="." method="_on_Left_button_up"]
