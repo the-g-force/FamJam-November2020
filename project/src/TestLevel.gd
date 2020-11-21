@@ -2,7 +2,8 @@ extends Node2D
 
 
 var wave_list := [
-	load("res://src/Wave.tscn")
+	load("res://src/Waves/Wave.tscn"),
+	load("res://src/Waves/Wave2.tscn")
 ]
 
 onready var _wave_spawn_point := $WaveSpawnPoint
