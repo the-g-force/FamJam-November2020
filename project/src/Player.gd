@@ -6,6 +6,10 @@ export var ship_variant := 0 setget _set_ship_variant
 
 onready var _sprite := $Sprite
 
+func _ready():
+	_sprite.texture = Gamestats.ship_texture
+	
+
 func _physics_process(delta):
 	var velocity := 0
 	if Input.is_action_pressed("Left"):
@@ -24,10 +28,6 @@ func hit():
 	Gamestats.health -= 1
 	if Gamestats.health <= 0:
 		queue_free()
-
-
-func _draw():
-	draw_rect(Rect2(Vector2(-10,-10), Vector2(20,20)), Color.aqua)
 
 
 func _set_ship_variant(value:int)->void:
