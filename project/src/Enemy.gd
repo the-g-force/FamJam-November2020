@@ -1,6 +1,7 @@
 class_name Enemy extends Area2D
 
 signal destroyed
+export var base_shoot_speed := 3.0
 
 func _ready():
 # warning-ignore:incompatible_ternary
@@ -24,4 +25,4 @@ func _on_Timer_timeout():
 
 
 func _start_shoot_timer():
-	$Timer.start(2.0+randf()*-1.0 if randi()%2 == 0 else 1.0)
+	$Timer.start(base_shoot_speed+randf()*-1.0 if randi()%2 == 0 else 1.0)
