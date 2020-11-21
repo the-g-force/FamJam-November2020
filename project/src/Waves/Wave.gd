@@ -11,11 +11,8 @@ const PATH_OPTIONS = [
 	[DOWN, RIGHT_TO_EDGE, DOWN, LEFT_TO_EDGE]
 ]
 
-
 export var SPEED := 100
 export var Enemy : PackedScene = preload("res://src/Enemy.tscn")
-
-
 
 var _path_list : Array = PATH_OPTIONS[randi() % PATH_OPTIONS.size()]
 var _path : PathElement
@@ -47,7 +44,7 @@ func _on_Enemy_destroyed():
 func _physics_process(delta):
 	if _path==null:
 		_path = _path_list[_path_index].new()
-	var done := _path.execute(_enemies.get_children(), delta)
+	var done := _path.execute(_enemies.get_children(), delta*SPEED)
 	if done:
 		_path_index = (_path_index + 1) % _path_list.size()
 		_path = _path_list[_path_index].new()
