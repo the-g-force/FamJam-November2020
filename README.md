@@ -1,4 +1,4 @@
-# Earth Defender
+# Earth Protector
 
 November 2020 FamJam game by the G-Force
 
