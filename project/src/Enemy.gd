@@ -1,18 +1,24 @@
 class_name Enemy extends Area2D
 
+onready var sprite := $Sprite
+
 signal destroyed
+
 export var base_shoot_speed := 3.0
 
+var type := -1
+
 func _ready():
-# warning-ignore:incompatible_ternary
+	sprite.play(str(type))
 	_start_shoot_timer()
 
-func _draw():
-	draw_circle(Vector2.ZERO, $CollisionShape2D.shape.radius, Color.lightblue)
 
-
-func _on_Enemy_area_entered(_area):
+func hit():
 	emit_signal("destroyed")
+	Gamestats.score += 1
+	var explosion:Node2D = load("res://src/ExplosionParticles.tscn").instance()
+	explosion.position = self.get_global_transform().origin
+	get_tree().current_scene.add_child(explosion)
 	queue_free()
 
 
