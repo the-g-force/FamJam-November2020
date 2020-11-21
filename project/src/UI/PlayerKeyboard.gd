@@ -4,6 +4,9 @@ extends Node2D
 func _process(_delta):
 	if Gamestats.health < 5:
 		$Health.get_node("Sprite"+str(Gamestats.health+1)).hide()
+	elif Gamestats.health == 5:
+		for heart in $Health.get_children():
+			heart.show()
 	$Score.text = str(Gamestats.score)
 
 
