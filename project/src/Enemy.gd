@@ -1,15 +1,16 @@
 class_name Enemy extends Area2D
 
+onready var sprite := $Sprite
+
 signal destroyed
 
 export var base_shoot_speed := 3.0
 
+var type := -1
+
 func _ready():
+	sprite.play(str(type))
 	_start_shoot_timer()
-
-
-func _draw():
-	draw_circle(Vector2.ZERO, $CollisionShape2D.shape.radius, Color.lightblue)
 
 
 func _on_Enemy_area_entered(_area):

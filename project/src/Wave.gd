@@ -21,9 +21,11 @@ onready var _enemies := $Enemies
 var _enemies_left := 0
 
 func _ready():
+	var type := randi()%4
 	for spawn_point in _spawn_points.get_children():
 		var enemy : Enemy = Enemy.instance()
 		enemy.position = spawn_point.position
+		enemy.type = type
 		_enemies.add_child(enemy)
 		_enemies_left += 1
 		var _ignored := enemy.connect("destroyed", self, "_on_Enemy_destroyed", [], CONNECT_ONESHOT)
@@ -34,6 +36,7 @@ func _on_Enemy_destroyed():
 	if _enemies_left == 0:
 		print("All enemies in this wave are destroyed")
 		emit_signal("completed")
+		queue_free()
 
 
 func _physics_process(delta):
