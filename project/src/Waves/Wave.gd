@@ -2,6 +2,9 @@ extends Node2D
 
 signal completed
 
+const MIN_SPEED := 100
+const MAX_SPEED := 300
+const TIME_OF_MAX_SPEED := 60
 
 const DOWN := preload("res://src/Paths/Down.gd")
 const LEFT_TO_EDGE := preload("res://src/Paths/LeftToEdge.gd")
@@ -11,7 +14,6 @@ const PATH_OPTIONS = [
 	[DOWN, RIGHT_TO_EDGE, DOWN, LEFT_TO_EDGE]
 ]
 
-export var SPEED := 100
 export var Enemy : PackedScene = preload("res://src/Enemy.tscn")
 
 var _path_list : Array = PATH_OPTIONS[randi() % PATH_OPTIONS.size()]
@@ -44,7 +46,8 @@ func _on_Enemy_destroyed():
 func _physics_process(delta):
 	if _path==null:
 		_path = _path_list[_path_index].new()
-	var done := _path.execute(_enemies.get_children(), delta*SPEED)
+	var speed := range_lerp(Gamestats.seconds_elapsed, 0, TIME_OF_MAX_SPEED, MIN_SPEED, MAX_SPEED)
+	var done := _path.execute(_enemies.get_children(), delta*speed)
 	if done:
 		_path_index = (_path_index + 1) % _path_list.size()
 		_path = _path_list[_path_index].new()
