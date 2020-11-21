@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://src/UI/MenuScene.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/Audiowide/Audiowide-Regular.ttf" type="DynamicFontData" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://assets/images/hero-ships/015.png" type="Texture" id=12]
 [ext_resource path="res://assets/images/hero-ships/010.png" type="Texture" id=13]
 [ext_resource path="res://src/Starfield.tscn" type="PackedScene" id=14]
+[ext_resource path="res://assets/images/hero-ships/alex.png" type="Texture" id=15]
 
 [sub_resource type="DynamicFont" id=1]
 size = 72
@@ -157,6 +158,14 @@ margin_right = 316.0
 margin_bottom = 204.0
 size_flags_horizontal = 3
 texture_normal = ExtResource( 11 )
+
+[node name="ShipButton10" parent="ShipContainer" instance=ExtResource( 4 )]
+margin_left = 336.0
+margin_top = 104.0
+margin_right = 400.0
+margin_bottom = 204.0
+size_flags_horizontal = 3
+texture_normal = ExtResource( 15 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchor_left = 0.5
