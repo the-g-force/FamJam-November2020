@@ -12,7 +12,7 @@ onready var _game_over_dialog := $GameOverDialog
 
 func _ready():
 	_spawn_wave()
-	_player.connect("destroyed", self, "_on_Player_destroyed", [], CONNECT_ONESHOT)
+	var _error = _player.connect("destroyed", self, "_on_Player_destroyed", [], CONNECT_ONESHOT)
 
 
 func _spawn_wave():
