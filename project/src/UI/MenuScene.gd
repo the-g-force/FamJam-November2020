@@ -3,8 +3,10 @@ extends Control
 export var GameLevel : PackedScene = load("res://src/TestLevel.tscn")
 
 onready var _ship_container := $ShipContainer
+onready var _fullscreen_toggle := $HBoxContainer/FullscreenButton
 
 func _ready():
+	_fullscreen_toggle.pressed = OS.window_fullscreen
 	for ship_button in _ship_container.get_children():
 		ship_button.connect("pressed", self, "_on_ShipButton_pressed", [ship_button])
 
