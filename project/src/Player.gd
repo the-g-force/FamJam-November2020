@@ -9,3 +9,7 @@ func _physics_process(delta):
 	if Input.is_action_pressed("Right"):
 		velocity += 1
 	var _error = move_and_collide(Vector2(velocity, 0)*delta*speed)
+
+
+func _draw():
+	draw_rect(Rect2(position, Vector2(10,10)), Color.aqua)
