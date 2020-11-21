@@ -15,3 +15,7 @@ func _on_ShipButton_pressed(ship_button)->void:
 	var error := get_tree().change_scene_to(GameLevel)
 	if error:
 		print('Error changing scene: %s' % str(error))
+
+
+func _on_FullscreenButton_toggled(button_pressed):
+	OS.window_fullscreen = button_pressed
