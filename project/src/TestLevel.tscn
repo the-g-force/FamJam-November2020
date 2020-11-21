@@ -11,8 +11,8 @@
 script = ExtResource( 3 )
 
 [node name="Background" type="ColorRect" parent="."]
-margin_right = 484.0
-margin_bottom = 648.0
+margin_right = 480.0
+margin_bottom = 640.0
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false

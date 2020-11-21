@@ -36,8 +36,8 @@ __meta__ = {
 }
 
 [node name="Background" type="ColorRect" parent="."]
-margin_right = 477.0
-margin_bottom = 637.0
+margin_right = 480.0
+margin_bottom = 640.0
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_lock_": true,
