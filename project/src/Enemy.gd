@@ -16,6 +16,9 @@ func _ready():
 func _on_Enemy_area_entered(_area):
 	emit_signal("destroyed")
 	Gamestats.score += 1
+	var explosion:Node2D = load("res://src/ExplosionParticles.tscn").instance()
+	explosion.position = self.get_global_transform().origin
+	get_tree().current_scene.add_child(explosion)
 	queue_free()
 
 

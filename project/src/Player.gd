@@ -30,7 +30,14 @@ func hit():
 	Gamestats.health -= 1
 	if Gamestats.health <= 0:
 		emit_signal("destroyed")
+		var explosion:Node2D = load("res://src/ExplosionParticles.tscn").instance()
+		explosion.position = self.get_global_transform().origin
+		get_tree().current_scene.add_child(explosion)
 		queue_free()
+	else:
+		var explosion:Node2D = load("res://src/DamageExplosion.tscn").instance()
+		explosion.position = self.get_global_transform().origin
+		get_tree().current_scene.add_child(explosion)
 
 
 func _set_ship_variant(value:int)->void:
