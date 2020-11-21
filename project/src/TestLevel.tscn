@@ -2,10 +2,11 @@
 
 [ext_resource path="res://src/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/PlayerKeyboard.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/Wave.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/TestLevel.gd" type="Script" id=3]
 [ext_resource path="res://src/Jukebox.tscn" type="PackedScene" id=4]
 
 [node name="TestLevel" type="Node2D"]
+script = ExtResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 246.073, 569.928 )
@@ -13,12 +14,14 @@ position = Vector2( 246.073, 569.928 )
 [node name="Keyboard" parent="." instance=ExtResource( 2 )]
 position = Vector2( 0, 590 )
 
-[node name="Wave" parent="." instance=ExtResource( 3 )]
-position = Vector2( 250.724, 17.6389 )
-
 [node name="LevelBounds" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LevelBounds"]
 polygon = PoolVector2Array( 0, 560, 0, 640, 480, 640, 480, 560, 488, 560, 488, 648, -8, 648, -8, 560 )
 
 [node name="Jukebox" parent="." instance=ExtResource( 4 )]
+
+[node name="WaveSpawnPoint" type="Position2D" parent="."]
+position = Vector2( 240, 16 )
+
+[node name="Waves" type="Node2D" parent="."]

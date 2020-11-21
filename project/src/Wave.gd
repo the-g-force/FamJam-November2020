@@ -26,7 +26,7 @@ func _ready():
 		var enemy : Enemy = Enemy.instance()
 		enemy.position = spawn_point.position
 		enemy.type = type
-		_enemies.add_child(enemy)
+		_enemies.call_deferred("add_child", enemy)
 		_enemies_left += 1
 		var _ignored := enemy.connect("destroyed", self, "_on_Enemy_destroyed", [], CONNECT_ONESHOT)
 		

@@ -11,16 +11,6 @@ radius = 25.0
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 5 ) ],
-"loop": true,
-"name": "0",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "1",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "3",
@@ -29,6 +19,16 @@ animations = [ {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "0",
 "speed": 5.0
 } ]
 
