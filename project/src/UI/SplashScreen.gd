@@ -1,6 +1,6 @@
 extends Control
 
-export var MenuScene : PackedScene = preload("res://src/MenuScene.tscn")
+export var MenuScene : PackedScene = preload("res://src/UI/MenuScene.tscn")
 
 func _input(event):
 	if event is InputEventMouseButton and event.is_pressed():
