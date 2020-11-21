@@ -2,6 +2,9 @@ class_name Player
 extends KinematicBody2D
 
 export var speed := 200
+export var ship_variant := 0 setget _set_ship_variant
+
+onready var _sprite := $Sprite
 
 func _physics_process(delta):
 	var velocity := 0
@@ -25,3 +28,7 @@ func hit():
 
 func _draw():
 	draw_rect(Rect2(Vector2(-10,-10), Vector2(20,20)), Color.aqua)
+
+
+func _set_ship_variant(value:int)->void:
+	_sprite.frame = value
