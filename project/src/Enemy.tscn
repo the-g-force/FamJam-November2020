@@ -1,19 +1,24 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/enemies/001.png" type="Texture" id=2]
 [ext_resource path="res://assets/images/enemies/014.png" type="Texture" id=3]
 [ext_resource path="res://assets/images/enemies/000.png" type="Texture" id=4]
 [ext_resource path="res://assets/images/enemies/018.png" type="Texture" id=5]
+[ext_resource path="res://assets/images/enemies/016.png" type="Texture" id=6]
+[ext_resource path="res://assets/images/enemies/013.png" type="Texture" id=7]
+[ext_resource path="res://assets/images/enemies/017.png" type="Texture" id=8]
+[ext_resource path="res://assets/images/enemies/005.png" type="Texture" id=9]
+[ext_resource path="res://assets/images/enemies/006.png" type="Texture" id=10]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 25.0
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "3",
+"name": "1",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 2 ) ],
@@ -26,9 +31,34 @@ animations = [ {
 "name": "0",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "1",
+"name": "3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "8",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "7",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "6",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "4",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "5",
 "speed": 5.0
 } ]
 
@@ -52,5 +82,5 @@ position = Vector2( 0, 25.568 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
-animation = "3"
+animation = "8"
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -21,7 +21,7 @@ onready var _enemies := $Enemies
 var _enemies_left := 0
 
 func _ready():
-	var type := randi()%4
+	var type := randi()%9
 	for spawn_point in _spawn_points.get_children():
 		var enemy : Enemy = Enemy.instance()
 		enemy.position = spawn_point.position
