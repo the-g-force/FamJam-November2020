@@ -8,10 +8,10 @@ export var Enemy : PackedScene = preload("res://src/Enemy.tscn")
 
 
 var _path_list : Array = [
-	load("res://src/Paths/RightToEdge.gd"),
 	load("res://src/Paths/Down.gd"),
 	load("res://src/Paths/LeftToEdge.gd"),
-	load("res://src/Paths/Down.gd")
+	load("res://src/Paths/Down.gd"),
+	load("res://src/Paths/RightToEdge.gd"),	
 ]
 var _path : PathElement
 var _path_index := 0

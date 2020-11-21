@@ -22,6 +22,6 @@ polygon = PoolVector2Array( 0, 560, 0, 640, 480, 640, 480, 560, 488, 560, 488, 6
 [node name="Jukebox" parent="." instance=ExtResource( 4 )]
 
 [node name="WaveSpawnPoint" type="Position2D" parent="."]
-position = Vector2( 240, 16 )
+position = Vector2( 240, -19.3553 )
 
 [node name="Waves" type="Node2D" parent="."]
